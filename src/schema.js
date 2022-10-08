@@ -13,6 +13,12 @@ export const typeDefs = gql`
     updatedAt: DateTime!
   }
 
+  type NoteFeed {
+    notes: [Note]!
+    cursor: String!
+    hasNextPage: Boolean
+  }
+
   type User {
     id: ID!
     username: String!
@@ -27,6 +33,7 @@ export const typeDefs = gql`
     users: [User!]!
     user(username: String!): User!
     me: User!
+    noteFeed(cursor: String): NoteFeed
   }
 
   type Mutation {
